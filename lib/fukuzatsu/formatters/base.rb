@@ -34,8 +34,12 @@ module Fukuzatsu
       end
 
       def output_path
-        output_path = File.dirname(File.join(output_directory, self.summary.source_file))
-        FileUtils.mkpath(output_path)
+        if self.summary
+          output_path = output_directory + "/" + File.dirname(self.summary.source_file)
+          FileUtils.mkpath(output_path)
+        else
+          output_path = File.dirname(output_directory)
+        end
         output_path
       end
 
