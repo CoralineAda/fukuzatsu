@@ -17,7 +17,7 @@ module Fukuzatsu
       end
 
       def filename
-        "results.json"
+        "json/results.json"
       end
 
       def file_extension
