@@ -34,11 +34,14 @@ This installs the CLI tool.
     # Writes to doc/fuzuzatsu/htm/index.htm
 
     fuku check path/to/file/my_file.rb -f csv
-    # Writes to doc/fuzuzatsu/csv/results.rb.csv
+    # Writes to doc/fuzuzatsu/csv/results.csv
+
+    fuku check path/to/file/my_file.rb -f json
+    # Writes to doc/fuzuzatsu/json/results.json
 
 ## Contributing
 
-Please note that this project is released with a [Contributor Code of Conduct](https://gitlab.com/coraline/fukuzatsu/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](http://contributor-covenant.org/version/1/0/0/). By participating in this project you agree to abide by its terms.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
