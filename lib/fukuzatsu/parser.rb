@@ -14,6 +14,7 @@ module Fukuzatsu
     end
 
     def report
+      self.formatter.report
       self.formatter.reset_output_directory
       self.formatter.index(summaries)
       summaries.uniq(&:container_name).each do |summary|
@@ -27,10 +28,17 @@ module Fukuzatsu
 
     def check_complexity
       return if self.threshold == 0
-      complexities = summaries.map(&:average_complexity)
-      return if complexities.max.to_f <= self.threshold.to_f
-      puts "Maximum average complexity of #{complexities.max} exceeds #{self.threshold.to_f} threshold!"
+      return unless complexity_exceeds_threshold?
+      puts "Maximum average complexity of #{average_complexities.max} exceeds #{self.threshold.to_f} threshold!"
       exit 1
+    end
+
+    def average_complexities
+      average_complexities ||= summaries.map(&:average_complexity)
+    end
+
+    def complexity_exceeds_threshold?
+      average_complexities.max.to_f > self.threshold.to_f
     end
 
     def summaries
