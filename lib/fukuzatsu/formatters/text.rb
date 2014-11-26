@@ -34,7 +34,6 @@ module Fukuzatsu
           title: "#{summary.source_file}".color(:white),
           headings: header,
           rows: rows,
-          style: {width: 120}
         )
         table.align_column(3, :right)
         puts table

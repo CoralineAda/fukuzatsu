@@ -14,7 +14,6 @@ module Fukuzatsu
     end
 
     def report
-      self.formatter.report
       self.formatter.reset_output_directory
       self.formatter.index(summaries)
       summaries.uniq(&:container_name).each do |summary|
