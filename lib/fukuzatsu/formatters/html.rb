@@ -8,8 +8,8 @@ module Fukuzatsu
 
       include Formatters::Base
 
-      def self.index(summaries)
-        Fukuzatsu::Formatters::HtmlIndex.new(summaries).export
+      def self.index(summaries, base_output_path)
+        Fukuzatsu::Formatters::HtmlIndex.new(summaries, base_output_path).export
       end
 
       def columns

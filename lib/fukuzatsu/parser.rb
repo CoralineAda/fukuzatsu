@@ -5,21 +5,28 @@ module Fukuzatsu
 
   class Parser
 
-    attr_reader :path_to_files, :formatter, :threshold
+    attr_reader :path_to_files, :formatter, :threshold, :output_path
 
-    def initialize(path_to_files, formatter, threshold)
+    DEFAULT_OUTPUT_DIRECTORY = "doc/fukuzatsu/"
+
+    def initialize(path_to_files, formatter, threshold, output_path=nil)
       @path_to_files = path_to_files
       @formatter = formatter
       @threshold = threshold
+      @output_path = output_path || DEFAULT_OUTPUT_DIRECTORY
+    end
+
+    def explain
+      puts "Processed #{summaries.count} file(s). Results written to #{output_path}."
     end
 
     def report
-      self.formatter.reset_output_directory
-      self.formatter.index(summaries)
+      self.formatter.reset_output_directory(output_path)
+      self.formatter.index(summaries, output_path)
       summaries.uniq(&:container_name).each do |summary|
-        self.formatter.new(summary: summary).export
+        self.formatter.new(summary: summary, base_output_path: self.output_path).export
       end
-      self.formatter.explain(summaries.count)
+      explain
       check_complexity
     end
 

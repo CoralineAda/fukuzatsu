@@ -6,8 +6,8 @@ module Fukuzatsu
 
       include Formatters::Base
 
-      def self.index(summaries)
-        Fukuzatsu::Formatters::JsonIndex.new(summaries).export
+      def self.index(summaries, base_output_path)
+        Fukuzatsu::Formatters::JsonIndex.new(summaries, base_output_path).export
       end
 
       def as_json
@@ -19,7 +19,7 @@ module Fukuzatsu
         }
         if summary.is_class_or_module?
           result[:average_complexity] = summary.average_complexity
-          result[:methods] = summary.summaries.map { |s| Json.new(summary: s).as_json }
+          result[:methods] = summary.summaries.map { |s| Json.new(summary: s, base_output_path: self.base_output_path).as_json }
         end
         result
       end
