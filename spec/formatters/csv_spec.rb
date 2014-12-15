@@ -29,7 +29,7 @@ describe Fukuzatsu::Formatters::Csv do
     )
   }
 
-  let (:formatter) { Fukuzatsu::Formatters::Csv.new(summary: summary) }
+  let (:formatter) { Fukuzatsu::Formatters::Csv.new(summary: summary, base_output_path: nil) }
 
   describe "#rows" do
 

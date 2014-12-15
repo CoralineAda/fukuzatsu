@@ -8,8 +8,9 @@ module Fukuzatsu
 
       attr_reader :summaries
 
-      def initialize(summaries)
+      def initialize(summaries, base_output_path)
         @summaries = summaries
+        @base_output_path = base_output_path
       end
 
       def content

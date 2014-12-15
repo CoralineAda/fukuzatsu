@@ -9,9 +9,7 @@ module Fukuzatsu
 
       include Formatters::Base
 
-      def self.explain(count); end
-
-      def self.reset_output_directory
+      def self.reset_output_directory(args)
       end
 
       def self.writes_to_file_system?
