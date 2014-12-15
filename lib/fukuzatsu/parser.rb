@@ -17,7 +17,8 @@ module Fukuzatsu
     end
 
     def explain
-      puts "Processed #{summaries.count} file(s). Results written to #{output_path}."
+      puts "Processed #{summaries.count} file(s)."
+      puts "Results written to #{output_path}." if formatter.writes_to_file_system?
     end
 
     def report

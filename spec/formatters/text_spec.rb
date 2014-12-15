@@ -10,7 +10,7 @@ describe Fukuzatsu::Formatters::Text do
     )
   }
 
-  let (:formatter) { Fukuzatsu::Formatters::Text.new(summary: summary) }
+  let (:formatter) { Fukuzatsu::Formatters::Text.new(summary: summary, base_output_path: nil) }
 
   describe "#header" do
     it "returns a header array" do

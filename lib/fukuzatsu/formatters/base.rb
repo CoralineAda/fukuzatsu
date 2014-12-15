@@ -61,6 +61,10 @@ module Fukuzatsu
           FileUtils.mkpath(directory)
         end
 
+        def writes_to_file_system?
+          true
+        end
+
       end
     end
 

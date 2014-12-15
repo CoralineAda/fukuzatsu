@@ -26,7 +26,7 @@ describe "Fukuzatsu::Formatters::HTML" do
     )
   }
 
-  let (:formatter) { Fukuzatsu::Formatters::Html.new(summary: summary) }
+  let (:formatter) { Fukuzatsu::Formatters::Html.new(summary: summary, base_output_path: nil) }
 
   describe "#header" do
     it "returns an HTML-formatted header" do
