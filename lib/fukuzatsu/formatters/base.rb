@@ -57,6 +57,7 @@ module Fukuzatsu
           begin
             FileUtils.remove_dir(directory)
           rescue Errno::ENOENT
+          rescue Errno::ENOTDIR
           end
           FileUtils.mkpath(directory)
         end
