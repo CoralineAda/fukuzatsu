@@ -57,7 +57,8 @@ module Fukuzatsu
           begin
             FileUtils.remove_dir(directory)
           rescue Errno::ENOENT
-          FileUtils.mkpath(directory)
+            FileUtils.mkpath(directory)
+          end
         end
 
         def writes_to_file_system?
