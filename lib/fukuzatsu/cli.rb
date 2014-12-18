@@ -5,7 +5,7 @@ module Fukuzatsu
 
   class CLI < Thor
 
-    desc_text = "Formats are text (default, to STDOUT), html, and csv. "
+    desc_text = "Formats are text (default, to STDOUT), html, json, json_stdout, and csv. "
     desc_text << "Example: fuku check foo/ -f html"
 
     desc "check PATH_TO_FILE [-f FORMAT] [-t MAX_COMPLEXITY_ALLOWED] [-o OUTPUT_PATH]", desc_text
