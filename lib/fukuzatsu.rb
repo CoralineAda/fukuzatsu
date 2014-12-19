@@ -13,6 +13,7 @@ require_relative "fukuzatsu/formatters/html"
 require_relative "fukuzatsu/formatters/html_index"
 require_relative "fukuzatsu/formatters/json"
 require_relative "fukuzatsu/formatters/json_index"
+require_relative "fukuzatsu/formatters/json_stdout"
 require_relative "fukuzatsu/formatters/text"
 require_relative "fukuzatsu/parser"
 require_relative "fukuzatsu/summary"
@@ -28,6 +29,7 @@ module Fukuzatsu
       html: Fukuzatsu::Formatters::Html,
       csv:  Fukuzatsu::Formatters::Csv,
       json:  Fukuzatsu::Formatters::Json,
+      json_stdout: Fukuzatsu::Formatters::JsonStdout,
       text: Fukuzatsu::Formatters::Text
     }
   end

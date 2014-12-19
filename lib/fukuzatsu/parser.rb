@@ -27,8 +27,10 @@ module Fukuzatsu
       summaries.uniq(&:container_name).each do |summary|
         self.formatter.new(summary: summary, base_output_path: self.output_path).export
       end
-      explain
-      check_complexity
+      unless self.formatter.no_stdout?
+        explain
+        check_complexity
+      end
     end
 
     private

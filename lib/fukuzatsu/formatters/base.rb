@@ -65,6 +65,10 @@ module Fukuzatsu
           true
         end
 
+        def no_stdout?
+          false
+        end
+
       end
     end
 
