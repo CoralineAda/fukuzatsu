@@ -1,11 +1,8 @@
-require 'ephemeral'
-require 'poro_plus'
+require 'json'
 require 'fileutils'
 require 'haml'
 require 'analyst'
-require 'pry'
 
-require_relative "fukuzatsu/cli"
 require_relative "fukuzatsu/file_reader"
 require_relative "fukuzatsu/formatters/base"
 require_relative "fukuzatsu/formatters/csv"

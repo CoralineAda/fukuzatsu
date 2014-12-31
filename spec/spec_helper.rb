@@ -5,3 +5,4 @@ SimpleCov.start
 require 'rubygems'
 require 'rspec'
 require 'fukuzatsu'
+require 'byebug'

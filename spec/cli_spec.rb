@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative '../lib/fukuzatsu/cli'
 
 describe Fukuzatsu::CLI do
 

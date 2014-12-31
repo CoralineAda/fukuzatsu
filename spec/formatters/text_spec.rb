@@ -5,8 +5,7 @@ describe Fukuzatsu::Formatters::Text do
   let (:summary) { Fukuzatsu::Summary.new(
       :source => "foo.rb",
       :entity => "Foo",
-      :container => "Foo",
-      :summaries => []
+      :container => "Foo"
     )
   }
 

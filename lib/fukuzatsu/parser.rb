@@ -1,6 +1,3 @@
-require 'fileutils'
-require 'analyst'
-
 module Fukuzatsu
 
   class Parser

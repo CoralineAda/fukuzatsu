@@ -6,8 +6,7 @@ describe Fukuzatsu::Formatters::Csv do
       :source => "",
       :source_file => "foo.rb",
       :entity => "::initialize",
-      :container => "Foo",
-      :summaries => []
+      :container => "Foo"
     )
   }
 
@@ -15,8 +14,7 @@ describe Fukuzatsu::Formatters::Csv do
       :source => "",
       :source_file => "foo.rb",
       :entity => "#print",
-      :container => "Foo",
-      :summaries => []
+      :container => "Foo"
     )
   }
 
@@ -24,9 +22,8 @@ describe Fukuzatsu::Formatters::Csv do
       :source => "",
       :source_file => "foo.rb",
       :entity => "Foo",
-      :container => "Foo",
-      :summaries => [method_summary_1, method_summary_2]
-    )
+      :container => "Foo"
+    ).tap {|s| s.summaries = [method_summary_1, method_summary_2] }
   }
 
   let (:formatter) { Fukuzatsu::Formatters::Csv.new(summary: summary) }
