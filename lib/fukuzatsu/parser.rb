@@ -2,10 +2,10 @@ module Fukuzatsu
 
   class Parser
 
-    attr_reader :path_to_files, :formatter, :threshold
+    attr_reader :paths_to_files, :formatter, :threshold
 
-    def initialize(path_to_files, formatter, threshold)
-      @path_to_files = path_to_files
+    def initialize(paths_to_files, formatter, threshold)
+      @paths_to_files = paths_to_files
       @formatter = formatter
       @threshold = threshold
     end
@@ -47,7 +47,7 @@ module Fukuzatsu
     end
 
     def file_reader
-      @file_reader ||= Fukuzatsu::FileReader.new(self.path_to_files)
+      @file_reader ||= Fukuzatsu::FileReader.new(self.paths_to_files)
     end
 
   end
