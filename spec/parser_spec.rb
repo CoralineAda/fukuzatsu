@@ -3,15 +3,15 @@ require 'spec_helper'
 describe Fukuzatsu::Parser do
 
   let(:parser) { Fukuzatsu::Parser.new(
-      "./fixtures/",
+      ["./fixtures/"],
       "formatter proxy",
       14
     )
   }
 
   describe "#initialize" do
-    it "initializes its path to files" do
-      expect(parser.path_to_files).to eq "./fixtures/"
+    it "initializes its paths to files" do
+      expect(parser.paths_to_files).to eq ["./fixtures/"]
     end
   end
 

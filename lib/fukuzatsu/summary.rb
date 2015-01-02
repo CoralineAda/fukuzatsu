@@ -39,12 +39,12 @@ module Fukuzatsu
       end
     end
 
-    def initialize(source:, entity:, container:, source_file:nil, summaries:[])
+    def initialize(source:, entity:, container:, source_file:nil)
       @source = source
       @entity = entity
       @container = container
       @source_file = source_file
-      @summaries = summaries
+      @summaries = []
       @edges, @nodes, @exits = [0, 1, 1]
     end
 
@@ -69,7 +69,7 @@ module Fukuzatsu
     end
 
     def average_complexity
-      return 0 if self.summaries.blank?
+      return 0 if self.summaries.empty?
       self.summaries.map(&:complexity).reduce(&:+) / self.summaries.count.to_f
     end
 

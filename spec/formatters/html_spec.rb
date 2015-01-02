@@ -5,25 +5,22 @@ describe "Fukuzatsu::Formatters::HTML" do
   let (:method_summary_1) { Fukuzatsu::Summary.new(
       :source => "foo.rb",
       :entity => "::initialize",
-      :container => "Foo",
-      :summaries => []
+      :container => "Foo"
     )
   }
 
   let (:method_summary_2) { Fukuzatsu::Summary.new(
       :source => "foo.rb",
       :entity => "#print",
-      :container => "Foo",
-      :summaries => []
+      :container => "Foo"
     )
   }
 
   let (:summary) { Fukuzatsu::Summary.new(
       :source => "foo.rb",
       :entity => "Foo",
-      :container => "Foo",
-      :summaries => [method_summary_1, method_summary_2]
-    )
+      :container => "Foo"
+    ).tap {|s| s.summaries = [method_summary_1, method_summary_2] }
   }
 
   let (:formatter) { Fukuzatsu::Formatters::Html.new(summary: summary, base_output_path: nil) }

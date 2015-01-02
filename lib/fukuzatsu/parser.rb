@@ -1,16 +1,12 @@
-require 'fileutils'
-require 'analyst'
-
 module Fukuzatsu
 
   class Parser
 
-    attr_reader :path_to_files, :formatter, :threshold, :output_path
-
     DEFAULT_OUTPUT_DIRECTORY = "doc/fukuzatsu/"
+    attr_reader :paths_to_files, :formatter, :threshold, :output_path
 
-    def initialize(path_to_files, formatter, threshold, output_path=nil)
-      @path_to_files = path_to_files
+    def initialize(paths_to_files, formatter, threshold, output_path=nil)
+      @paths_to_files = paths_to_files
       @formatter = formatter
       @threshold = threshold
       @output_path = output_path || DEFAULT_OUTPUT_DIRECTORY
@@ -60,7 +56,7 @@ module Fukuzatsu
     end
 
     def file_reader
-      @file_reader ||= Fukuzatsu::FileReader.new(self.path_to_files)
+      @file_reader ||= Fukuzatsu::FileReader.new(self.paths_to_files)
     end
 
   end

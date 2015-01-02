@@ -20,8 +20,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.1'
 
   spec.add_dependency "analyst", ">= 0.16.0"
-  spec.add_dependency "ephemeral"
-  spec.add_dependency "poro_plus"
   spec.add_dependency "haml"
   spec.add_dependency "parser"
   spec.add_dependency "rainbow"
@@ -30,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
 
   spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "byebug"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rspec"

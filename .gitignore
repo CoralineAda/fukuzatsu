@@ -23,3 +23,4 @@ mkmf.log
 .console_history
 *.swp
 coverage
+tags

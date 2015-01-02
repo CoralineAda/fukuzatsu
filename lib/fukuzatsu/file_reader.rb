@@ -1,10 +1,10 @@
 module Fukuzatsu
   class FileReader
 
-    attr_reader :path_to_files
+    attr_reader :paths_to_files
 
-    def initialize(path_to_files)
-      @path_to_files = path_to_files
+    def initialize(paths_to_files)
+      @paths_to_files = paths_to_files
     end
 
     def source_files
@@ -14,23 +14,24 @@ module Fukuzatsu
     private
 
     def file_list
-      if File.directory?(path_to_files)
-        return Dir.glob(File.join(path_to_files, "**", "*.rb"))
-      else
-        return [path_to_files]
-      end
+      paths_to_files.map do |path|
+        if File.directory?(path)
+          Dir.glob(File.join(path, "**", "*.rb"))
+        else
+          path
+        end
+      end.flatten
     end
 
     class SourceFile
-      attr_reader :file
-      def initialize(file)
-        @file = File.open(file, "r")
+      attr_reader :filename
+
+      def initialize(filename)
+        @filename = filename
       end
-      def filename
-        file.path
-      end
+
       def contents
-        self.file.read
+        File.read(filename)
       end
     end
 

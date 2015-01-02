@@ -1,11 +1,8 @@
-require 'ephemeral'
-require 'poro_plus'
+require 'json'
 require 'fileutils'
 require 'haml'
 require 'analyst'
-require 'pry'
 
-require_relative "fukuzatsu/cli"
 require_relative "fukuzatsu/file_reader"
 require_relative "fukuzatsu/formatters/base"
 require_relative "fukuzatsu/formatters/csv"
@@ -20,8 +17,8 @@ require_relative "fukuzatsu/summary"
 require_relative "fukuzatsu/version"
 
 module Fukuzatsu
-  def self.new(path_to_files, formatter=:text, threshold=0, output_path=nil)
-    Fukuzatsu::Parser.new(path_to_files, formatters[formatter], threshold, output_path)
+  def self.new(paths_to_files, formatter=:text, threshold=0, output_path=nil)
+    Fukuzatsu::Parser.new(paths_to_files, formatters[formatter], threshold, output_path)
   end
 
   def self.formatters

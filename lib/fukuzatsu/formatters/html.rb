@@ -13,7 +13,7 @@ module Fukuzatsu
       end
 
       def columns
-        ["class", "method", "complexity"]
+        ["Class", "Method", "Complexity"]
       end
 
       def content
@@ -48,11 +48,11 @@ module Fukuzatsu
       end
 
       def header
-        columns.map{|col| "<th>#{col.titleize}</th>"}.join("\r\n")
+        columns.map{|col| "<th>#{col}</th>"}.join("\r\n")
       end
 
       def lexer
-        lexer = Rouge::Lexers::Ruby.new
+        Rouge::Lexers::Ruby.new
       end
 
       def output_template
