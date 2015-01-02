@@ -15,10 +15,11 @@ module Fukuzatsu
 
     method_option :format, :type => :string, :default => 'text', :aliases => "-f", :desc => "Output format; text, csv, json, or html"
     method_option :threshold, :type => :numeric, :default => 0, :aliases => "-t", :desc => "Maximum allowed complexity. If the complexity of any file exceeds this value, the exit status will be non-zero (failure)."
+    method_option :output, :type => :string, :aliases => "-o", :desc => "Path to output directory."
 
     def check(path, *more_paths)
       paths = [path] + more_paths
-      Fukuzatsu.new(paths, formatter, options['threshold']).report
+      Fukuzatsu.new(paths, formatter, options['threshold'], options['output']).report
     end
 
     private

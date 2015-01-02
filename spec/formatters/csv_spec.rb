@@ -26,7 +26,7 @@ describe Fukuzatsu::Formatters::Csv do
     ).tap {|s| s.summaries = [method_summary_1, method_summary_2] }
   }
 
-  let (:formatter) { Fukuzatsu::Formatters::Csv.new(summary: summary) }
+  let (:formatter) { Fukuzatsu::Formatters::Csv.new(summary: summary, base_output_path: nil) }
 
   describe "#rows" do
 

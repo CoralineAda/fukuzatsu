@@ -4,24 +4,24 @@ module Fukuzatsu
 
     module Base
 
-      BASE_OUTPUT_DIRECTORY = "doc/fukuzatsu/"
-
       def self.included(klass)
         klass.send(:attr_accessor, :summary)
         klass.send(:attr_accessor, :source)
+        klass.send(:attr_accessor, :base_output_path)
         klass.extend(ClassMethods)
       end
 
-      def initialize(source: nil, summary:nil)
+      def initialize(source: nil, summary:nil, base_output_path:)
         self.source = source
         self.summary = summary
+        self.base_output_path = base_output_path
       end
 
       def export
         begin
           File.open(path_to_results, 'w') {|outfile| outfile.write(content)}
         rescue Exception => e
-          puts "Unable to write output: #{e} #{e.backtrace}"
+          puts "Unable to write output to #{path_to_results}: #{e} #{e.backtrace}"
         end
       end
 
@@ -30,7 +30,7 @@ module Fukuzatsu
       end
 
       def output_directory
-        BASE_OUTPUT_DIRECTORY + file_extension.gsub(".","")
+        self.base_output_path + "/" + file_extension.gsub(".","")
       end
 
       def output_path
@@ -49,21 +49,26 @@ module Fukuzatsu
 
       module ClassMethods
 
-        def index(summaries)
+        def index(summaries, base_output_path)
         end
 
-        def reset_output_directory
-          directory = new.output_directory
+        def reset_output_directory(base_output_path)
+          directory = new(base_output_path: base_output_path).output_directory
           begin
             FileUtils.remove_dir(directory)
           rescue Errno::ENOENT
+            FileUtils.mkpath(directory)
           end
-          FileUtils.mkpath(directory)
         end
 
-        def explain(count)
-          puts "Processed #{count} file(s). Results written to #{new.output_directory}."
+        def writes_to_file_system?
+          true
         end
+
+        def no_stdout?
+          false
+        end
+
       end
     end
 

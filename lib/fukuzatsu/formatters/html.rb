@@ -8,8 +8,8 @@ module Fukuzatsu
 
       include Formatters::Base
 
-      def self.index(summaries)
-        Fukuzatsu::Formatters::HtmlIndex.new(summaries).export
+      def self.index(summaries, base_output_path)
+        Fukuzatsu::Formatters::HtmlIndex.new(summaries, base_output_path).export
       end
 
       def columns
@@ -33,7 +33,7 @@ module Fukuzatsu
 
       def export
         begin
-          File.open(path_to_results, 'w') {|outfile| outfile.write(content)}
+          File.open(File.expand_path(path_to_results), 'w') {|outfile| outfile.write(content)}
         rescue Exception => e
           puts "Unable to write output: #{e} #{e.backtrace}"
         end

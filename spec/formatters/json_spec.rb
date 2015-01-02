@@ -26,7 +26,7 @@ describe "Fukuzatsu::Formatters::Json" do
     ).tap {|s| s.summaries = [method_summary_1, method_summary_2] }
   }
 
-  let (:formatter) { Fukuzatsu::Formatters::Json.new(summary: summary) }
+  let (:formatter) { Fukuzatsu::Formatters::Json.new(summary: summary, base_output_path: nil) }
 
   describe "#to_json" do
 
