@@ -33,7 +33,7 @@ module Fukuzatsu
 
       def export
         begin
-          File.open(path_to_results, 'w') {|outfile| outfile.write(content)}
+          File.open(File.expand_path(path_to_results), 'w') {|outfile| outfile.write(content)}
         rescue Exception => e
           puts "Unable to write output: #{e} #{e.backtrace}"
         end
