@@ -30,6 +30,9 @@ This installs the CLI tool.
 
     fuku check path/to/file/my_file.rb
 
+    fuku check path/to/directory
+    # Generates report for all rb files in the given directory
+
     fuku check path/to/file/my_file.rb -f html
     # Writes to doc/fuzuzatsu/htm/index.htm
 
@@ -38,6 +41,13 @@ This installs the CLI tool.
 
     fuku check path/to/file/my_file.rb -f json
     # Writes to doc/fuzuzatsu/json/results.json
+
+### Running as docker image
+
+The following will download the latest docker image, mount the current directory inside the container and run `fuku check -f html .` which generates html report for all ruby files in the current directory.
+
+    docker run -v $(pwd):/tmp/fuku --workdir=/tmp/fuku rubygem/fukuzatsu check -f html .
+
 
 ## Contributing
 
