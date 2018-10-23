@@ -35,4 +35,13 @@ describe Fukuzatsu::Formatters::Text do
     end
   end
 
+  describe "#export" do
+    it "'puts' a table" do
+      class_source = File.open("./spec/fixtures/class.rb", "r").readlines
+      summary = Fukuzatsu::Summary.from(content: class_source.join("\n")).first
+
+      text_formatter = Fukuzatsu::Formatters::Text.new(summary: summary, base_output_path: nil)
+      expect(text_formatter.export).to eq(nil)
+    end
+  end
 end
