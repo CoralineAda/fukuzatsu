@@ -4,11 +4,12 @@
     %title
       Fukuzatsu:
       = class_name
-    %link{href: "http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css", rel: "stylesheet"}
-    %script{language: "javascript", src: "http://code.jquery.com/jquery-1.11.0.min.js", type: "text/javascript"}
-    %script{language: "javascript", src: "http://code.jquery.com/jquery-migrate-1.2.1.min.js", type: "text/javascript"}
-    %script{language: "javascript", src: "http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js", type: "text/javascript"}
-    %script{language: "javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js", type: "text/javascript"}
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+    %link{href: "https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css", rel: "stylesheet"}
+    %script{language: "javascript", src: "https://code.jquery.com/jquery-1.12.4.min.js", type: "text/javascript"}
+    %script{language: "javascript", src: "https://code.jquery.com/jquery-migrate-1.2.1.min.js", type: "text/javascript"}
+    %script{language: "javascript", src: "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js", type: "text/javascript"}
+    %script{language: "javascript", src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", type: "text/javascript"}
     :css
       #{Rouge::Theme.find('thankful_eyes').render(scope: '.highlight')}
 
