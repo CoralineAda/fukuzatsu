@@ -33,7 +33,6 @@ module Fukuzatsu
           headings: header,
           rows: rows,
         )
-        table.align_column(2, :right)
         puts table
       end
 
